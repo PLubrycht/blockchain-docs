@@ -55,3 +55,5 @@ If someone would try to add a fraud block to the chain with already used coins w
 ## Conclusion
 
 Proof of Work is a critical mechanism that secuires Bitcoin without a central authority. By requiring miners to perform costly calculations, PoW prevents cheating with transactions, stops double spending and protects integrity of the whole blockchain.
+
+test
