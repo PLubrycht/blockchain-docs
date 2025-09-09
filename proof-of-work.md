@@ -1,7 +1,5 @@
 # What is Proof of Work in Bitcoin ?
 
-## Table of Contents
-
 [TOC]
 
 ## 1. Short introduction
