@@ -1,19 +1,7 @@
 # What is Proof of Work in Bitcoin ?
 
 ## Table of Contents
-
-- [1. Short introduction](#1-short-introduction)
-- [2. Block Header](#2-block-header)
-- [3. Transactions and Merkle Root](#3-transactions-and-merkle-root)
-- [4. Difficulty](#4-difficulty)
-- [5. The Proof of Work Process](#5-the-proof-of-work-process)
-- [6. Types of Nodes in Bitcoin](#6-types-of-nodes-in-bitcoin)
-- [7. Rewards](#7-rewards)
-- [8. Coinbase Transaction](#8-coinbase-transaction)
-- [9. Halving](#9-halving)
-- [10. UTXO (Unspent Transaction Output)](#10-utxo-unspent-transaction-output)
-- [11. Verification, Security and Double Spending](#11-verification-security-and-double-spending)
-- [12. Conclusion](#12-conclusion)
+[TOC]
 
 ## 1. Short introduction
 
