@@ -15,7 +15,7 @@ This design solves a main limitation of **symmetric cryptography**, where both p
 This concept was first introduced in the 1970s and has since become the foundation of digital security.
 In Bitcoin, asymmetric cryptography is used in:
 
-* generating secure wallets;
+* generating secure pairs of keys (often stored in a wallet application);
 * proving ownership of funds using **digital signature**;
 * verifying transactions across a decentralized network without trusting need of central authority.
 
@@ -26,7 +26,7 @@ The core element of asymmetric cryptography are **key pairs**: one **private** a
 * **private key**: a secret number, usually 256 bits long in Bitcoin. Anyone with access to this key is able to access the wallet and spend the funds in it;
 * **public key**: derived from the private key using one way mathematical operations, and can be shared with anyone. It allows to verify digital signatures or create addresses to receive Bitcoin.
 
-The connection between these two keys is only one-way. A public key is derived from the private key using elliptic curve multiplication, but reversing this process, trying to calculate private key form the public key is computationally infeasible.
+The connection between these two keys is only one-way. In Bitcoin, public keys are derived using elliptic curve multiplication. Other asymmetric systems, like RSA, rely on different mathematical problems but maintain the same property: deriving the public key is easy, reversing it to get the private key is infeasible.
 
 ### Example of process in Bitcoin
 
@@ -36,13 +36,17 @@ The connection between these two keys is only one-way. A public key is derived f
 
 This system and process provides 3 key properties:
 
-* **security** - only the private key have access to funds;
+* **authentication** - only the holder of a private key can authorize spending the funds;
 * **transparency** - public keys and addresses can be safely shared;
 * **trustlessness** - anyone can verify transactions using public information, without need to trust another person.
 
 ## 3.Elliptic Curve Cryptography
 
-Asymmetric cryptography can be built on different mathematical problems. Bitcoin specifically uses Elliptic Curve Cryptography (ECC), which provides strong security with much smaller keys. For example, a 256-bit ECC key offers comparable security level to a 3072-bit RSA key (different mathematical way of cryptography).  The efficiency makes ECC perfect for systems like Bitcoin, where performance and scalability and crucial.
+Asymmetric cryptography can be built on different mathematical problems. Bitcoin specifically uses Elliptic Curve Cryptography (ECC), which provides strong security with much smaller keys. For example, a 256-bit ECC key offers comparable security level to a 3072-bit RSA key.
+
+RSA is another public-key algorithm, based on the difficulty of factoring large numbers, rather than elliptic curve mathematics.
+
+The efficiency makes ECC perfect for systems like Bitcoin, where performance and scalability and crucial.
 
 ### What is ECC?
 
@@ -58,13 +62,46 @@ This multiplication is easy in one direction, private -> public, but infeasible 
 
 ### Advantages of ECC
 
-* **efficiency:** ECC provides the same level of security  as RSA but with much shorter keys;
+* **efficiency:** ECC provides the same level of security as RSA but with much shorter keys. For example, a 256-bit ECC key ≈ 3072-bit RSA key. RSA is still widely used, but it's longer keys make it less efficient for systems like Bitcoin;
 * **scalability:** shorter keys and signatures save storage and bandwidth, which is crucial in a global peer-to-peer network like Bitcoin;
 * **security:** well studied elliptic curves like secp256k1 provide strong cryptographic guarantees.
 
 ### ECC in Bitcoin
 
 * Bitcoin wallets use secp256k1 to generate public keys from private keys;
-* ECC is the base of **digital signatures**, which allow users to prove ownership of their funds;
+* in Bitcoin, digital signatures are implemented using ECDSA which is based on elliptic curves. Other digital signatures algorithms, like RSA do not rely on the same curve.
 
-Without asymmetric cryptography like ECC it would be impossible to provide security in decentralized transactions like in Bitcoin.
+## 4,Digital Signatures
+
+Digital signatures are a crucial component of asymmetric cryptography. They allow users to prove the **authenticity** and **integrity** of a message or transaction without revealing the private key.
+
+### How digital signatures work?
+
+1. **message preparation** - we start with the original message;
+2. **hashing** - the message is passed through a cryptographic hash function like SHA-256. This produces a fixed-size **digest**(that how hashed message is named in this process) of the process. Hashing ensures that even the smallest change in the original message results in a completely different digest;
+3. **signing** - the digest is then encrypted using the sender's **private key**. This produces the digital signature (an encrypted hash);
+4. **verification** - anyone with access to the sender's **public key** can decrypt the signature back into a hash. they then re-hash the original message and compare both digest. If the values match, the signature is valid.
+
+This process proves both that the message came from the holder of the private key and that it was not modified in transit.
+
+### Security Properties ofDigital Signatures
+
+Digital signatures provide the following guarantees:
+
+* **integrity** - any change to the message after signing will cause a mismatch between the original and recalculated hash;
+* **authentication** - the signature proves that the message was created by the holder of the private key;
+* **non-repudiation** - the signer cannot later deny having created the signature, since only their private key could have generate it.
+
+### Use of Digital signature
+
+In Bitcoin every transaction input must be signed with the private key corresponding to the funds being spent.
+
+Beyond Bitcoin:
+
+* secure email;
+* code signing for software distribution;
+* secure connections (TLS certificate)
+
+## 5.Summary
+
+Asymmetric cryptography is at the core of modern digital security. By separating private and public keys, it enables secure communication, digital signatures and decentralized trust models. Its applications are used not only in blockchains like Bitcoin but widely in other areas, such as  secure email, VPN, and internet protocols like HTTPS.
