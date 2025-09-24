@@ -84,7 +84,7 @@ Digital signatures are a crucial component of asymmetric cryptography. They allo
 
 This process proves both that the message came from the holder of the private key and that it was not modified in transit.
 
-### Security Properties ofDigital Signatures
+### Security Properties of Digital Signatures
 
 Digital signatures provide the following guarantees:
 
