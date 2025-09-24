@@ -5,8 +5,11 @@
     "Merkle",
     "Preimage",
     "RIPEMD",
+    "smartcards",
+    "subkeys",
     "trustlessness",
     "UTXO",
-    "UTXOs"
+    "UTXOs",
+    "Yubi"
   ]
 }
