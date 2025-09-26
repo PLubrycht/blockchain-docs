@@ -115,6 +115,6 @@ This split into execution and consensus clients ensures decentralization and spe
 
 Light clients connect to full nodes and rely on them for block headers and proofs. They do not store the full state or history but can still verify chain validity and query account balances. These clients are designed for resource constrained devices and are crucial for availability, particularly in mobile and embedded applications.
 
-## 5.Conclusion
+## 5.Summary
 
 Blockchain network rely on different types of nodes to balance security, scalability, and accessibility. Full nodes preserve decentralization and data integrity, while light nodes make participation passible for devices with limited resources. The distinction between execution and consensus clients in Ethereum in the best example how node design evolves to meet the requirements of blockchain systems.
