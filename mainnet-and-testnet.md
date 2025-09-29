@@ -6,7 +6,7 @@
 
 In blockchain, networks are divided into **mainnet** and **testnet** environments.
 
-* the **mainnet** is the primary blockchain where real transactions with real assets take place;
+* the **mainnet** is the primary blockchain where transactions with real economic value takes place, backed by secure consensus and decentralization;
 * the **testnet** is a parallel network for experimentation, where tokens have no real value and developers can test applications without cost and safely.
 
 The division ensures innovation and security without exposing users to unnecessary risk.
@@ -31,7 +31,17 @@ Ethereum provides multiple networks as well:
   
 On testnets, developers can request free ETh from faucets to pay gas fees when deploying contracts or sending transactions.
 
-## 4.Why Testnets Are Important
+## 4.How Testnets Are Built
+
+Unlike mainnets, testnets often use alternative consensus mechanism to reduce costs and make testing easier:
+
+* **weaker Proof of Work/Proof of Stake**: some testnets imitate the consensus of the mainnet but with lower difficulty or less security, which makes blocks easier to produce but also easier to revert;
+* **Proof of Authority(PoA)**: in many testnets, blocks are validated by a small group of trusted validators. This model is highly centralized but ensures stability and predictability, which is useful for testing;
+* **faucets and free tokens**: on testnets, tokens are not meant to carry real monetary value, so they are distributed for free via faucets.
+
+This design allows developers to test contracts, transactions and protocol upgrades in the environment that acts similar to the mainnet but without the risk and costs of real assets.
+
+## 5.Why Testnets Are Important
 
 Testnets provide:
 
@@ -39,6 +49,6 @@ Testnets provide:
 * **cost efficiency**: transactions and tests use free tokens, so developers can simulate the mainnet conditions without spending actual money on fees or gas;
 * **ecosystem preparation**: before major changes, testnets are used to simulate the upgrade in a safe environment, to provide smooth adaptation to update before it goes live on the mainnet.
 
-## 5.Summary
+## 6.Summary
 
 Mainnets and testnets are key element for blockchain development and innovation. While mainnets ensure the real economy of BTC and ETH, testnets act as laboratories for developers, enabling secure and costless experimentation. Both are essential for the stability and evolution of whole blockchain ecosystem.
